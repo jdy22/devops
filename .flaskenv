@@ -1,1 +1,2 @@
 FLASK_APP=literature_searcher
+FLASK_ENV=development

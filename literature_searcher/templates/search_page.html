@@ -1,9 +1,28 @@
 {% extends "basic.html" %}
 {% block title%}Home{% endblock %}
 {% block body %}
-Search some literature:
-<form action="/search_result">
-  <label for="search_query">Query:</label>
-  <input type="text" id="search_query" name="search_query">
-</form>
+<div>
+  <h3>Search some literature</h3>
+
+  <form action="/search_results" method="POST">
+    <div>
+      <label for="search_query">Query:</label>
+      <input type="text" id="search_query" name="search_query" required>
+    </div>
+    <br>
+    {# --
+      <div>
+        <input type="radio" id="html-response" name="response_type" value="HTML" required>
+        <label for="html-response">HTML</label>
+        <input type="radio" id="md-response" name="response_type" value="MARKDOWN" required>
+        <label for="md-response">Markdown</label>
+        <input type="radio" id="pdf-response" name="response_type" value="PDF" required>
+        <label for="pdf-response">PDF</label>
+      </div>
+    --- #}
+    <div>
+      <button type="submit">Search</button>
+    </div>
+  </form>
+</div>
 {% endblock %}
