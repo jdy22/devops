@@ -29,7 +29,7 @@ def process_query():
 
 
 # UNCOMMENT FOR STAGE 3 --------------------------------------
-# @bp.route("/search_result", methods=["GET", "POST"])
+# @bp.route("/search_results", methods=["GET", "POST"])
 # def process_query():
 #     if query := request.form["search_query"]:
 #         search_results = query_processor.process(query)
