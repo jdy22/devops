@@ -11,4 +11,4 @@ deploy-code-job:
   stage: deploy
   script:
     - echo "Deploying"
-  environment: 5000
+  environment: "5000"
