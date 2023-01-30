@@ -12,5 +12,4 @@ deploy-code-job:
   stage: deploy
   script:
     - echo "Deploying"
-  environment: 
-    PORT: 5000
+  environment: "5000"
