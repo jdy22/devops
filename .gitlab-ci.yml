@@ -1,0 +1,14 @@
+stages:
+  - test
+  - deploy
+
+test-code-job:
+  stage: test
+  script:
+    - echo "Testing"
+
+deploy-code-job:
+  stage: deploy
+  script:
+    - echo "Deploying"
+  environment: 5000
