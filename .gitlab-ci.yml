@@ -8,7 +8,7 @@ cache:
     - venv/
 
 before_script:
-  - python --version  # For debugging
+  - python3 --version  # For debugging
   - python3 -m venv venv
   - source venv/bin/activate
 
