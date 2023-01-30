@@ -36,5 +36,5 @@ deploy-code-job:
   script:
     - echo "Deploying"
     - export PORT=5000
-    - gunicorn --config gunicorn_config.py wsgi:app &
+    - gunicorn --config gunicorn_config.py wsgi:app --daemon
   environment: "production"
