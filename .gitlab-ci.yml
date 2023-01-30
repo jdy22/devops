@@ -1,3 +1,5 @@
+tags: tag1
+
 stages:
   - test
   - deploy
