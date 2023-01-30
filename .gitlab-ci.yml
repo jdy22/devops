@@ -13,4 +13,6 @@ deploy-code-job:
   stage: deploy
   script:
     - echo "Deploying"
-  environment: "5000"
+  environment: 
+    port: 5000
+    name: ane21/venv
