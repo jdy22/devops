@@ -2,15 +2,23 @@ stages:
   - test
   - deploy
 
+cache:
+  paths:
+    - .cache/pip
+    - venv/
+
+before_script:
+  - python --version  # For debugging
+  - python3 -m venv venv
+  - source venv/bin/activate
+
 test-code-job:
   tags: ["tag1"]
   stage: test
   script:
     - echo "Testing"
-    - python3 -m venv venv
-    - source venv/bin/activate
     - pip install -r requirements.txt
-    # - python3 -m tests.test_query_processor.py
+    - python3 -m tests.test_query_processor.py
 
 deploy-code-job:
   tags: ["tag1"]
