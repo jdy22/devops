@@ -18,7 +18,7 @@ test-code-job:
   script:
     - echo "Testing"
     - pip install -r requirements.txt
-    - python3 -m tests.test_query_processor.py
+    - python3 -m tests.test_query_processor
 
 deploy-code-job:
   tags: ["tag1"]
