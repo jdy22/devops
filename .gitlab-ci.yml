@@ -7,7 +7,7 @@ test-code-job:
   stage: test
   script:
     - echo "Testing"
-    - python3 tests/test_query_processor.py
+    - python3 -m tests.test_query_processor.py
 
 deploy-code-job:
   tags: ["tag1"]
