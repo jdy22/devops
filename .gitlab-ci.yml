@@ -1,16 +1,16 @@
-tags: tag1
-
 stages:
   - test
   - deploy
 
 test-code-job:
+  tags: tag1
   stage: test
   script:
     - echo "Testing"
     - python3 tests/test_query_processor.py
 
 deploy-code-job:
+  tags: tag1
   stage: deploy
   script:
     - echo "Deploying"
