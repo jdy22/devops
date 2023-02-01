@@ -45,7 +45,7 @@ production-code-job:
   stage: production
   script:
     - echo "Production"
-    # - dpl --provider=heroku --app=<login>-simplewebapp --api-key=<heroku_api_key>
+    - dpl --provider=heroku --app=hl1022-simplewebapp --api-key=$heroku_api_key
   environment: "production"
 
 
