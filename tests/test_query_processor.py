@@ -13,3 +13,10 @@ def test_knows_about_asimov():
 
 def test_not_case_sensitive():
     assert any("playwright" in result for result in process("shakespeare"))
+
+def test_knows_about_orwell():
+    assert any("novelist" in result for result in process("orwell"))
+
+def test_knows_about_lee():
+    assert any("Mockingbird" in result for result in process("lee"))
+
