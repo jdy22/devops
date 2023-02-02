@@ -16,49 +16,49 @@ def index():
     return render_template("search_page.html")
 
 
-# COMMENT-OUT FOR STAGE 3 ------------------------------------
-@bp.route("/search_results", methods=["GET", "POST"])
-def process_query():
-    if query := request.form["search_query"]:
-        search_results = query_processor.process(query)
-        return render_template("search_results.html", search_results=search_results)
-    abort(400, "You did not enter a query")
+# # COMMENT-OUT FOR STAGE 3 ------------------------------------
+# @bp.route("/search_results", methods=["GET", "POST"])
+# def process_query():
+#     if query := request.form["search_query"]:
+#         search_results = query_processor.process(query)
+#         return render_template("search_results.html", search_results=search_results)
+#     abort(400, "You did not enter a query")
 
 
 # ------------------------------------------------------------
 
 
 # UNCOMMENT FOR STAGE 3 --------------------------------------
-# @bp.route("/search_results", methods=["GET", "POST"])
-# def process_query():
-#     if query := request.form["search_query"]:
-#         search_results = query_processor.process(query)
-#         response_type = request.form["response_type"]
-#         if response_type == "HTML":
-#             return render_template("search_results.html", search_results=search_results)
-#
-#         # response_type is either MARKDOWN or PDF
-#         with TemporaryDirectory() as tmp:
-#
-#             # We need the markdown regardless
-#             md_file_path = create_markdown_file(
-#                 content=formatted_response(query, search_results),
-#                 file_path=tmp / Path("temp.md"),
-#             )
-#
-#             response_file_path = md_file_path
-#             if response_type == "PDF":
-#                 response_file_path = create_pdf_from_markdown(
-#                     md_file_path=md_file_path, pdf_file_path=tmp / Path("temp.pdf")
-#                 )
-#
-#             return send_file(
-#                 response_file_path,
-#                 mimetype=mimetype[response_type],
-#                 download_name=file_name[response_type],
-#                 as_attachment=True,
-#             )
-#     abort(400, "You did not enter a query")
+@bp.route("/search_results", methods=["GET", "POST"])
+def process_query():
+    if query := request.form["search_query"]:
+        search_results = query_processor.process(query)
+        response_type = request.form["response_type"]
+        if response_type == "HTML":
+            return render_template("search_results.html", search_results=search_results)
+
+        # response_type is either MARKDOWN or PDF
+        with TemporaryDirectory() as tmp:
+
+            # We need the markdown regardless
+            md_file_path = create_markdown_file(
+                content=formatted_response(query, search_results),
+                file_path=tmp / Path("temp.md"),
+            )
+
+            response_file_path = md_file_path
+            if response_type == "PDF":
+                response_file_path = create_pdf_from_markdown(
+                    md_file_path=md_file_path, pdf_file_path=tmp / Path("temp.pdf")
+                )
+
+            return send_file(
+                response_file_path,
+                mimetype=mimetype[response_type],
+                download_name=file_name[response_type],
+                as_attachment=True,
+            )
+    abort(400, "You did not enter a query")
 # ------------------------------------------------------------
 
 
