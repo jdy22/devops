@@ -20,3 +20,10 @@ def test_knows_about_orwell():
 def test_knows_about_lee():
     assert any("Mockingbird" in result for result in process("lee"))
 
+if __name__ == "__main__":
+    test_returns_empty_string_on_invalid_query()
+    test_knows_about_shakespeare()
+    test_knows_about_asimov()
+    test_not_case_sensitive()
+    test_knows_about_orwell()
+    test_knows_about_lee()
