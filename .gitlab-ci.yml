@@ -42,6 +42,7 @@ staging-code-job:
   environment: "staging"
 
 production-code-job:
+  tags: ["tag1"]
   stage: production
   image: ruby:latest
   before_script:
