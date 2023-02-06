@@ -42,9 +42,8 @@ staging-code-job:
   environment: "staging"
 
 production-code-job:
-  tags: ["tag1"]
-  image: ruby:latest
   stage: production
+  image: ruby:latest
   before_script:
     - gem install dpl-heroku
   script:
