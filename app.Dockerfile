@@ -6,7 +6,7 @@ RUN apt-get update -y
 RUN apt-get install -y python3 python3-pip python3-dev build-essential python3.10-venv
 
 # FROM python:3.10.0-alpine (cannot have 2 FROMs)
-WORKDIR /app
+# WORKDIR /app
 
 # Enable venv
 # read this https://pythonspeed.com/articles/activate-virtualenv-dockerfile/
