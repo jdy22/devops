@@ -22,6 +22,8 @@ before_script:
   - python3 --version  # For debugging
   - python3 -m venv venv
   - source venv/bin/activate
+  - apt-get install -y pandoc # for running on VM (PDF download)
+  - apt-get install -y texlive # for running on VM (dependencies for pandoc)
 
 test-code-job:
   tags: ["tag1"]
@@ -52,7 +54,7 @@ production-code-job:
     - dpl --provider=heroku --app=hl1022-simplewebapp --api-key=$heroku_api_key
   environment: "production"
 
-# need to uncomment lines 28, 47-49 when using shared runners
+# need to uncomment lines 28, 47-49 when using shared runners --> to dictate the environment
 # need to comment out line 45 when using shared runners
 
 
