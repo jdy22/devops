@@ -1,4 +1,4 @@
-# to build this image, you want to start with the base image (googled for python base image)
+# to build this image, you want to start with the base image (using ubuntu base img instead of python so can dl pandoc & texliv)
 # /app is the base working directory. any commands and paths will be relative to /app. if you want an absolute path then put a "\" first
 FROM ubuntu:latest
 
@@ -14,7 +14,7 @@ ENV VIRTUAL_ENV=/opt/venv
 RUN python3 -m venv $VIRTUAL_ENV
 ENV PATH="$VIRTUAL_ENV/bin:$PATH"
 
-# Install PANDOC (need texlive)
+# Install PANDOC (need texlive) 
 RUN apt-get install -y pandoc
 RUN apt-get install -y texlive
 
