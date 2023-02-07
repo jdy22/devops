@@ -22,8 +22,6 @@ before_script:
   - python3 --version  # For debugging
   - python3 -m venv venv
   - source venv/bin/activate
-  - sudo apt-get install -y pandoc # for running on VM (PDF download)
-  - sudo apt-get install -y texlive # for running on VM (dependencies for pandoc)
 
 test-code-job:
   tags: ["tag1"]
