@@ -15,8 +15,10 @@ RUN python3 -m venv $VIRTUAL_ENV
 ENV PATH="$VIRTUAL_ENV/bin:$PATH"
 
 # Install PANDOC (need texlive)
-RUN apt-get install -y pandoc
-RUN apt-get install -y texlive
+# RUN apt-get install -y pandoc
+# RUN apt-get install -y texlive
+RUN apt-get install pandoc
+RUN apt-get install texlive
 
 # copy everything from root folder, to /app folder inside the image
 # cmd & entrypoint https://devtron.ai/blog/cmd-and-entrypoint-differences/#:~:text=CMD%3A%20Sets%20default%20parameters%20that,Docker%20containers%20with%20CLI%20parameters.
