@@ -5,18 +5,18 @@ stages:
 
 # Change pip's cache directory to be inside the project directory since we can
 # only cache local items.
-#variables:
-#  PIP_CACHE_DIR: "$CI_PROJECT_DIR/.cache/pip"
+variables:
+  PIP_CACHE_DIR: "$CI_PROJECT_DIR/.cache/pip"
 
 # Pip's cache doesn't store the python packages
 # https://pip.pypa.io/en/stable/topics/caching/
 #
 # If you want to also cache the installed packages, you have to install
 # them in a virtualenv and cache it as well.
-#cache:
-#  paths:
-#    - .cache/pip
-#    - venv/
+cache:
+  paths:
+    - .cache/pip
+    - venv/
 
 before_script:
   - python3 --version  # For debugging
@@ -25,7 +25,7 @@ before_script:
 
 test-code-job:
   tags: ["tag1"]
-  image: python:3.10.0-alpine
+#  image: python:3.10.0-alpine
   stage: test
   script:
     - echo "Testing"
@@ -42,11 +42,11 @@ staging-code-job:
   environment: "staging"
 
 production-code-job:
-#  tags: ["tag1"]
+  tags: ["tag1"]
   stage: production
-  image: ruby:latest
-  before_script:
-    - gem install dpl-heroku
+#  image: ruby:latest
+#  before_script:
+#    - gem install dpl-heroku
   script:
     - echo "Production"
     - dpl --provider=heroku --app=hl1022-simplewebapp --api-key=$heroku_api_key
